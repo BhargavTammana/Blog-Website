@@ -7,6 +7,8 @@ import bodyParser from 'body-parser';
 import Connection from './database/db.js';
 import Router from './routes/route.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -18,10 +20,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', Router);
 
 
-const PORT = 8000;
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
 
-Connection(username, password);
 
+const PORT = process.env.PORT || 8000;
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
+
+
+const URL = process.env.MONGODB_URI || `mongodb+srv://${USERNAME}:${PASSWORD}@blog-app.sgxmjxx.mongodb.net/?retryWrites=true&w=majority&appName=blog-app`;
+Connection(URL);
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));

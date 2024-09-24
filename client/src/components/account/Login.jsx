@@ -133,8 +133,8 @@ const Login = ({ isUserAuthenticated }) => {
                 {
                     account === 'login' ?
                         <Wrapper>
-                            <TextField variant="standard" value={login.username} onChange={(e) => onValueChange(e)} name='username' label='Enter Username' />
-                            <TextField variant="standard" value={login.password} onChange={(e) => onValueChange(e)} name='password' label='Enter Password' />
+                            <TextField variant="standard" value={login.username} onChange={(e) => onValueChange(e)} name='username' placeholder='Enter Username' />
+                            <TextField variant="standard" value={login.password} onChange={(e) => onValueChange(e)} name='password' placeholder='Enter Password' />
 
                             {error && <Error>{error}</Error>}
 
@@ -143,9 +143,9 @@ const Login = ({ isUserAuthenticated }) => {
                             <SignupButton onClick={() => toggleSignup()} style={{ marginBottom: 50 }}>Create an account</SignupButton>
                         </Wrapper> :
                         <Wrapper>
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='name' label='Enter Name' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='name' placeholder='Enter Name' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' placeholder='Enter Username' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' placeholder='Enter Password' />
 
                             <SignupButton onClick={() => signupUser()} >Signup</SignupButton>
                             <Text style={{ textAlign: 'center' }}>OR</Text>
